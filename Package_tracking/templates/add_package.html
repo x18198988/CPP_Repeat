@@ -1,0 +1,28 @@
+{% extends 'layout.html' %} {% block content %} {% load static %}
+<main class="main">
+  <!-- Page Title -->
+  <div
+    class="page-title dark-background"
+    data-aos="fade"
+    style="background-image: url(../static/assets/img/page-title-bg.jpg)"
+  >
+    <div class="container position-relative"></div>
+  </div>
+  <!-- End Page Title -->
+  <div class="container mt-5">
+    <h1>Add Package</h1>
+    {% if tracking_id %}
+    <p>Package created successfully! Your tracking ID is: {{ tracking_id }}</p>
+    {% else %}
+    <br />
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+    {% endif %}
+    <div>
+      <br />
+    </div>
+  </div>
+</main>
+{% endblock %}
